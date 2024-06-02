@@ -11,7 +11,7 @@
   </parent>
   <groupId>com.anurag.k8sassignment</groupId>
   <artifactId>api-service</artifactId>
-  <version>0.0.4</version>
+  <version>3.0.0</version>
   <name>api-service</name>
   <description>api-service</description>
   <properties>

@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
         - name: api-service
-          image: anuragaggarwalnagarro01/api-service:0.0.1
+          image: anuragaggarwalnagarro01/api-service:2.0.0
           resources:
             requests:
               cpu: 50m

@@ -20,11 +20,11 @@ public class UserController {
   @PostMapping(path = "/addUsers")
   public @ResponseBody String addUsers() {
     User user1 = new User();
-    user1.setName("Anurag_v4");
+    user1.setName("Anurag");
     user1.setEmail("anurag@gmail.com");
 
     User user2 = new User();
-    user2.setName("Pranit_v4");
+    user2.setName("Pranit");
     user2.setEmail("pranit@gmail.com");
 
     userRepository.save(user1);
@@ -34,8 +34,11 @@ public class UserController {
   }
 
   @GetMapping(path = "/getUsers")
-  public @ResponseBody Iterable<User> getAllUsers() {
-    return userRepository.findAll();
+  public @ResponseBody Resp getAllUsers() {
+    Resp resp = new Resp();
+    resp.setImageVersion(3);
+    resp.setUsers(userRepository.findAll());
+    return resp;
   }
 
   @GetMapping(path = "/testHPA")
@@ -86,6 +89,28 @@ public class UserController {
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
+    }
+  }
+
+  private static class Resp {
+
+    Integer imageVersion;
+    Iterable<?> users;
+
+    public Integer getImageVersion() {
+      return imageVersion;
+    }
+
+    public void setImageVersion(Integer imageVersion) {
+      this.imageVersion = imageVersion;
+    }
+
+    public Iterable<?> getUsers() {
+      return users;
+    }
+
+    public void setUsers(Iterable<?> users) {
+      this.users = users;
     }
   }
 
